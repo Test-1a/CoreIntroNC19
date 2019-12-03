@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using CoreIntroNC19.Models;
 
 namespace CoreIntroNC19
 {
@@ -24,6 +26,9 @@ namespace CoreIntroNC19
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<CoreIntroNC19Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("CoreIntroNC19Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
