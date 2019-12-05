@@ -19,9 +19,16 @@ namespace CoreIntroNC19.Controllers
         }
 
         // GET: People
-        public async Task<IActionResult> Index()
+      
+        public async Task<IActionResult> Index(string search)
         {
-            return View(await _context.Person.ToListAsync());
+            var model = await _context.Person.ToListAsync();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                model = model.Where(p => p.Name.Contains(search)).ToList();
+            }
+            return View(model);
         }
 
         // GET: People/Details/5

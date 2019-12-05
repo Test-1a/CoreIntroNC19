@@ -3,14 +3,16 @@ using CoreIntroNC19.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoreIntroNC19.Migrations
 {
     [DbContext(typeof(CoreIntroNC19Context))]
-    partial class CoreIntroNC19ContextModelSnapshot : ModelSnapshot
+    [Migration("20191204132455_AddAgeToPerson")]
+    partial class AddAgeToPerson
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,36 +41,6 @@ namespace CoreIntroNC19.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Person");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Age = 20,
-                            Name = "Kalle",
-                            Salary = 20000
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Age = 45,
-                            Name = "Anna",
-                            Salary = 15000
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Age = 62,
-                            Name = "Nisse",
-                            Salary = 65000
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Age = 23,
-                            Name = "Pelle",
-                            Salary = 10000
-                        });
                 });
 #pragma warning restore 612, 618
         }

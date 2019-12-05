@@ -3,14 +3,16 @@ using CoreIntroNC19.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoreIntroNC19.Migrations
 {
     [DbContext(typeof(CoreIntroNC19Context))]
-    partial class CoreIntroNC19ContextModelSnapshot : ModelSnapshot
+    [Migration("20191204134557_AddSeed")]
+    partial class AddSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
